@@ -12,7 +12,6 @@ class ClassificarTEXTO:
         self.Organizar(self.texto)
     
     def Organizar(self, texto):
-        #self.QTDOriginal = len(texto)
         self.texto = texto.replace(' ', '')
         self.QTDLetras = len(self.texto)
         self.Caracteres(self.texto, self.QTDLetras)
