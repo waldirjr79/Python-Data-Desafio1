@@ -1,0 +1,31 @@
+import unidecode
+from collections import Counter
+
+class ClassificarTEXTO:
+    
+    def __init__(self, texto):
+        self.texto = texto
+        self.TirarAcentos(self.texto)
+        
+    def TirarAcentos(self, texto):
+        self.texto = unidecode.unidecode(texto).lower()
+        self.Organizar(self.texto)
+    
+    def Organizar(self, texto):
+        #self.QTDOriginal = len(texto)
+        self.texto = texto.replace(' ', '')
+        self.QTDLetras = len(self.texto)
+        self.Caracteres(self.texto, self.QTDLetras)
+        
+    def Caracteres(self, texto, QTDLetras):
+        ListaCaracteres = []
+        for caracter in texto:
+            ListaCaracteres.append(caracter)
+        ListaCaracteres = sorted(ListaCaracteres)
+        resultado = Counter(ListaCaracteres)
+        return print(f'O Texto apresentado possui um total de {QTDLetras} Letras.\nA classificação das Letras repetidas: {resultado}')
+        
+
+
+texto = 'Um forte indicador de que já há avanços de Democratização de Dados nas organizações é observar quantas pessoas tem acesso a Dados'
+ClassificarTEXTO(texto)
